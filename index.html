@@ -424,6 +424,145 @@ console.log(bag);
           Run
         </button>
       </section>
+      <h1 id="hw1">Homework 5</h1>
+      <hr class="split-homeworks" />
+
+      <section>
+        <div class="task">
+          <h2>Homework 05 / Required</h2>
+          <p>
+            Обязательное задание ( на 3 балла ) Напилить код функции
+            modificator, такой, чтобы в результате работы кода: function
+            sampleFunc () { console.log ( `${arguments.callee.name}:
+            ${arguments[0]} | ${arguments[1]}` ) } function modificator ( func )
+            { ... } testFunc = modificator( sampleFunc ) testFunc() в консоли
+            было: sampleFunc: test | sample
+          </p>
+        </div>
+
+        <div class="solution" contenteditable="true" id="scriptContent">
+          <pre>
+            <code data-language="javascript" > 
+function sampleFunc() {
+  console.log(`${arguments.callee.name}: ${arguments[0]} | ${arguments[1]}`);
+}
+
+function modificator(func) {
+  var a = "test";
+  var b = "sample";
+  func(a, b);
+}
+
+modificator(sampleFunc);              
+          </code>
+        </pre>
+        </div>
+
+        <button
+          type="button"
+          id="scriptContent"
+          onclick="changeScript('scriptContent')"
+        >
+          Run
+        </button>
+      </section>
+
+      <hr class="split-homeworks" />
+
+      <section>
+        <div class="task">
+          <h2>Homework 05 / Additionally 1</h2>
+          <p>
+            Дополнительно ( на 4 балла ) Напилить код функции modificator,
+            такой, чтобы в результате работы кода: function sampleFunc () {
+            console.info ( `Symbols in my code: ${arguments.callee + 0}` ) }
+            function modificator ( func ) { ... } modificator( sampleFunc )
+            sampleFunc() в консоль было выведено число символов в коде функции
+            sampleFunc, т.е.: Symbols in my code: 93
+          </p>
+        </div>
+
+        <div class="solution" contenteditable="true" id="scriptContent2">
+          <pre>
+            <code data-language="javascript" > 
+function sampleFunc() {
+  console.info(`Symbols in my code: ${arguments.callee + 0}`);
+}
+
+function modificator(func) {
+  var funcString = func.toString();
+  console.log(`Symbols in my code: ${funcString.length}`);
+}
+
+modificator(sampleFunc);             
+          </code>
+        </pre>
+        </div>
+
+        <button
+          type="button"
+          id="scriptContent2"
+          onclick="changeScript('scriptContent2')"
+        >
+          Run
+        </button>
+      </section>
+
+      <hr class="split-homeworks" />
+
+      <section>
+        <div class="task">
+          <h2>Homework 05 / Additionally 2</h2>
+          <p>
+            Дополнительно ( на 5 баллов ) Напилите код функции generateError,
+            такой, чтобы в результате работы кода: function testArguments () {
+            function generateError ( numArgs ) { ... } try { arguments.length >=
+            3 ? null : generateError ( arguments.length ) } catch ( err ) {
+            console.error ( `${err.name}: ${err.message}\n${err.stack}` ) } }
+            testArguments ( "Google" ) в консоли было сообщение от ошибке: ►
+            Application: Invalid arguments Function needs 3 arguments, but only
+            1 present
+          </p>
+        </div>
+
+        <div class="solution" contenteditable="true" id="scriptContent3">
+          <pre>
+            <code data-language="javascript" > 
+function testArguments() {
+  function generateError(numArgs) {
+    /*
+    if (numArgs) {
+      var err = new Error("Invalid arguments");
+      err.name = "Application:";
+      err.stack = `Function needs 3 arguments, but only ${numArgs} present`;
+      throw err;
+    }
+    */
+    var err = new Error("Invalid arguments");
+    err.name = "Application:";
+    err.stack = `Function needs 3 arguments, but only ${numArgs} present`;
+    throw err;
+  }
+  try {
+    arguments.length >= 3 ? null : generateError(arguments.length);
+  } catch (err) {
+    console.error(`${err.name}: ${err.message}\n${err.stack}`);
+  }
+}
+
+testArguments("Google");
+          </code>
+        </pre>
+        </div>
+
+        <button
+          type="button"
+          id="scriptContent3"
+          onclick="changeScript('scriptContent3')"
+        >
+          Run
+        </button>
+      </section>
     </main>
 
     <script src="./scripts/rainbow-custom.min.js"></script>
