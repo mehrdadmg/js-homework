@@ -67,28 +67,32 @@
         <div class="solution" contenteditable="true" id="scriptContent2">
           <pre>
             <code data-language="javascript" > 
-let person1 = {
+const person1 = {
   name: "name1",
   registered: true,
-  data: "06.01.19",
+  //data: "06.01.19",
+  data: new Date(2019, 0, 01),
   getInfo: userInfo,
 };
-let person2 = {
+const person2 = {
   name: "name2",
   registered: false,
-  data: "20.05.20",
+  //data: "20.05.20",
+  data: new Date(20, 05, 20),
   getInfo: userInfo,
 };
 function userInfo() {
-  console.log(this);
-  if (this.registered) {
-    console.log("Дата регистрации: " + this.data);
-  } else {
-    console.log("Незарегистрированный пользователь: " + this.name);
-  }
+  let tempData = this.data;
+  let stringDate = `${tempData.getDate()}.${tempData.getMonth() + 1}.${
+    tempData.getFullYear() - 2000
+  }`;
+
+  this.registered
+    ? console.log("Дата регистрации: " + stringDate)
+    : console.log("Незарегистрированный пользователь: " + this.name);
 }
 person1.getInfo();
-person2.getInfo();              
+person2.getInfo();            
           </code>
         </pre>
         </div>
