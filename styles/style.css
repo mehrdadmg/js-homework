@@ -10,7 +10,14 @@ body {
   padding: 0;
   position: relative;
   /* background-image: linear-gradient(to right top, #00085c, #0f0865, #1c086d, #280776, #33057e, #281d88, #192c91, #003999, #004a95, #005180, #005465, #005550); */
-  background-image: linear-gradient(to right top, #001739, #00385e, #005964, #007745, #638e04);
+  background-image: linear-gradient(
+    to right top,
+    #001739,
+    #00385e,
+    #005964,
+    #007745,
+    #638e04
+  );
   color: white;
 }
 a {
@@ -27,7 +34,8 @@ pre {
   margin: 0;
 }
 .wrapper {
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
 }
 nav {
@@ -48,19 +56,19 @@ nav ul {
   justify-content: space-around;
 }
 .task {
-    width: 90%;
-    text-align: justify;
-    margin: 0 auto;
-    padding: 15px;
+  width: 90%;
+  text-align: justify;
+  margin: 0 auto;
+  padding: 15px;
 }
 .task a {
-  color: #4682B4;
+  color: #4682b4;
   text-decoration: underline;
   padding: 0;
   transition: 0.7s ease;
 }
 .task a:hover {
-  color: #FFFF00;
+  color: #ffff00;
 }
 .wrapper h1 {
   margin: 0;
@@ -84,7 +92,7 @@ nav ul {
 button {
   outline: none;
   border: none;
-  background: #4682B4;
+  background: #4682b4;
   color: #ffffff;
   padding: 15px 40px 15px 50px;
   border-radius: 12px;
