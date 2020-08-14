@@ -6,15 +6,53 @@
     <link rel="stylesheet" href="styles/rainbow.css" />
     <link rel="stylesheet" href="styles/style.css" />
     <title>Homeworks</title>
+    <style>
+      details {
+        margin-bottom: 15px;
+      }
+
+      .bk-red,
+      .bk-blue,
+      .bk-green,
+      .bk-yellow,
+      .bk-gray {
+        width: 100%;
+        height: 10vh;
+        font-size: 30px;
+        text-align: center;
+        line-height: 10vh;
+        text-transform: capitalize;
+        cursor: pointer;
+      }
+      .bk-red {
+        background-color: red;
+      }
+      .bk-blue {
+        background-color: royalblue;
+      }
+      .bk-green {
+        background-color: seagreen;
+      }
+      .bk-yellow {
+        background-color: yellow;
+      }
+      .bk-gray {
+        background-color: lightgrey;
+        margin-bottom: 40px;
+      }
+      .redBack {
+        background-color: red !important;
+      }
+    </style>
   </head>
 
   <body>
     <main class="wrapper">
-      <h1>Javascript HomeWork</h1>
+      <h1>Javascript HomeWorks</h1>
       <hr class="split-homeworks" />
 
-      <section class="h3">
-        <h2 id="hw1">Homework 3</h2>
+      <details class="h3" >
+        <summary id="hw1">Homework 3</summary>
         <hr class="split-homeworks" />
 
         <div>
@@ -220,10 +258,10 @@
         </div>
 
         <hr class="split-homeworks" />
-      </section>
+      </details>
 
-      <section class="h4">
-        <h2 id="hw1">Homework 4</h2>
+      <details class="h4" >
+        <summary id="hw1">Homework 4</summary>
         <hr class="split-homeworks" />
 
         <div>
@@ -435,10 +473,10 @@
           </button>
         </div>
         <hr class="split-homeworks" />
-      </section>
+      </details>
 
-      <section class="h5">
-        <h2 id="hw1">Homework 5</h2>
+      <details openetails class="h5" >
+        <summary id="hw1">Homework 5</summary>
         <hr class="split-homeworks" />
 
         <div>
@@ -577,8 +615,183 @@
             Run
           </button>
         </div>
-      </section>
-    </main>
+      </details>
+
+      <details openetails class="h6" >
+        <summary id="hw1">Homework 3</summary>
+        <hr class="split-homeworks" />
+
+        <div>
+          <div class="task">
+            <h6>Homework 06 / Required</h6>
+            <p>
+              Обязательное задание ( 3 балла ) Создайте массив tags с именами
+              валидных тегов HTML5 Теперь создайте массив classes с именами
+              классов ( число элементов в массиве classes должно быть не меньше,
+              чем число элементов массива tags ) Создайте элемент style и
+              вставьте его в head документа Добавьте контент элемента style с
+              описанием классов, имена которых находятся в массиве classes
+              Итерируйте массив tags, создавая соответствующие элементы и
+              вставляя их на страницу, добавляя каждому элементу класс из
+              массива classes
+            </p>
+          </div>
+
+          <div class="solution" contenteditable="true" id="scriptContent6">
+            <pre>
+              <code data-language="javascript" > 
+                var myTag = ["header", "div", "section", "nav", "footer"];
+                var myClassName = ["bk-red", "bk-blue", "bk-green", "bk-yellow", "bk-gray"];
+                var myRoot = document.getElementById("myRoot");
+                
+                for (i = 0; i < myTag.length; i++) {
+                  var myElem = createElem(i);
+                  myElem.innerText = myTag[i];
+                  console.log(myElem);
+                  myRoot.appendChild(myElem);
+                }
+                
+                function createElem(index) {
+                  let i = index;
+                  let elem = document.createElement(myTag[i]);
+                  elem.setAttribute("class", myClassName[i]);
+                  return elem;
+                }
+            </code>
+          </pre>
+          </div>
+          <div id="myRoot" class="container"></div>
+          <button
+            type="button"
+            id="scriptContent6"
+            onclick="changeScript('scriptContent6')"
+          >
+            Run
+          </button>
+        </div>
+        <hr class="split-homeworks" />
+
+        <div>
+          <div class="task">
+            <h6>Homework 06 / Additionally 1</h6>
+            <p>
+              Дополнительно ( 4 балла ) Результат должен быть аналогичен тому,
+              что получится в предыдущем упражнении, Однако исходный массив tags
+              должен быть массивом объектов, каждый из которых содержит не
+              только имя тега элемента, но и его атрибуты, а так же хотя бы один
+              обработчик события Таким образом, массив classes нам уже не нужен,
+              но кроме стилизации элементов нужно еще добавить их контент,
+              используя как атрибуты тегов, так и свойства элементов DOMкоторый
+              будет ссылкой на функцию userInfo Вызовите каждый метод
+            </p>
+          </div>
+
+          <div class="solution" contenteditable="true" id="scriptContent26">
+            <pre>
+              <code data-language="javascript" > 
+  var myTag6 = [
+  {
+    myTagName: "header",
+    myClassName: "bk-red",
+    myEvent: "changeFontSize(this)",
+  },
+  {
+    myTagName: "div",
+    myClassName: "bk-blue",
+    myEvent: "changeFontSize(this)",
+  },
+  {
+    myTagName: "section",
+    myClassName: "bk-green",
+    myEvent: "changeFontSize(this)",
+  },
+  {
+    myTagName: "nav",
+    myClassName: "bk-yellow",
+    myEvent: "changeFontSize(this)",
+  },
+  {
+    myTagName: "footer",
+    myClassName: "bk-gray",
+    myEvent: "changeFontSize(this)",
+  },
+  ];
+  var myRoot6 = document.getElementById("root62");
+  
+  function createElem6(index) {
+  let i = index;
+  let elem6 = document.createElement(myTag6[i].myTagName);
+  elem6.setAttribute("class", myTag6[i].myClassName);
+  elem6.setAttribute("onclick", myTag6[i].myEvent);
+  return elem6;
+  }
+  
+  function changeFontSize(identify) {
+  identify.style.fontSize = "40px";
+  identify.style.textTransform = "uppercase";
+  }
+  
+  for (i = 0; i < myTag6.length; i++) {
+  let myElem6 = createElem6(i);
+  myElem6.innerText = myTag6[i].myTagName;
+  console.log(myElem6);
+  myRoot6.appendChild(myElem6);
+  }
+                       
+            </code>
+          </pre>
+          </div>
+          <div id="root62" class="container"></div>
+          <button
+            type="button"
+            id="scriptContent26"
+            onclick="changeScript('scriptContent26')"
+          >
+            Run
+          </button>
+        </div>
+        <hr class="split-homeworks" />
+
+        <div>
+          <div class="task">
+            <h6>Homework 06 / Additionally 2</h6>
+            <p>
+              Дополнительно ( 5 баллов ) Напилить код, который выбирает все
+              элементы-потомки body ( :warning: кроме элементов script ) и
+              добавляет им класc: .redBack { background-color: red!important; }
+              Альтернативный вариант - выбрать все заранее заданные элементы:
+              var tags = [ "header", "footer", "main", "div", "p" ] Запустить
+              код в консоли любой страницы Подсказка: используйте методы объекта
+              classList
+            </p>
+          </div>
+
+          <div class="solution" contenteditable="true" id="scriptContent36">
+            <pre>
+              <code data-language="javascript" > 
+  var bodyChild6 = document.querySelector("body").children;
+  //console.log(bodyChild);
+  
+  for (i = 0; i < bodyChild6.length; i++) {
+    if (bodyChild6[i].tagName.toLowerCase() != "script") {
+      console.log(bodyChild6[i]);
+      bodyChild6[i].classList.toggle("redBack");
+    }
+  }
+              </code>
+            </pre>
+          </div>
+
+          <button
+            type="button"
+            id="scriptContent36"
+            onclick="changeScript('scriptContent36')"
+          >
+            Run
+          </button>
+        </div>
+      </details>
+    </mai openn>
 
     <script src="./scripts/rainbow-custom.min.js"></script>
     <script src="./scripts/genericjs.js"></script>
